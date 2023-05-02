@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h2>this is blog</h2>
+            <h2>Tell us the differences between uncontrolled and controlled components.</h2>
         </div>
     );
 };

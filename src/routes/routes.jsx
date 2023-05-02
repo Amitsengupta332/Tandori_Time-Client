@@ -1,18 +1,18 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
- 
-import App from '../App';
 import Home from '../pages/Shared/Home/Home';
 import Blog from '../pages/Shared/Blog/Blog';
 import Login from '../pages/LoginLayout/Login/Login';
+import Main from '../Layout/Main/Main';
 const router = createBrowserRouter([
     {
         path: "/",
-        element:  <App></App>,
+        element:  <Main></Main>,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: (() => fetch("http://localhost:5000/chefList"))
             },
             {
                 path: '/blog',
