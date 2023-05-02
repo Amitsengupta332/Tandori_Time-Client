@@ -1,5 +1,6 @@
 import React from 'react';
 import background from '../../../assets/istockphoto-1455323613-1024x1024.jpg'
+import Chefs from '../../Chefs/Chefs/Chefs';
 
 const Home = () => {
     return (
@@ -11,10 +12,11 @@ const Home = () => {
                     </h1>
                     <p className="mt-4 sm:mt-6 lg:mt-8 text-xl sm:text-2xl lg:text-3xl font-medium text-white  ">Super Tasty Recipe</p>
                     <div className="mt-8 sm:mt-10 lg:mt-12 flex justify-center">
-                        <button className="px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 font-medium rounded-full bg-blue-600 text-white hover:bg-blue-700 ">Order Now</button>
+                        <button className="px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 font-medium rounded-2xl bg-blue-600 text-white hover:bg-blue-700 ">Order Now</button>
                     </div>
                 </div>
             </div>
+            <Chefs></Chefs>
         </div>
     );
 };
