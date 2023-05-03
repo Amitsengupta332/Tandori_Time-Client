@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RecipeCard from '../RecipeCard/RecipeCard';
 
 const Recipe = ({ selectedChefRecipe }) => {
-    console.log(selectedChefRecipe);
+    // console.log(selectedChefRecipe);
     const { chefName, chefPicture, yearsOfExperience, chefDescription, likes, recipes } = selectedChefRecipe ? selectedChefRecipe : {};
     // console.log(chefPicture,chefName);
 
@@ -14,7 +15,7 @@ const Recipe = ({ selectedChefRecipe }) => {
                     <h2 className="card-title">{chefName}</h2>
                     <p>{chefDescription}</p>
                     <div>
-                        <p>{likes}</p>
+                        <p>Likes: {likes}</p>
                         <p>Recipe: {recipes?.length}</p>
                         <p className='text-2xl '>Experience: {yearsOfExperience}Yrs  </p>
                     </div>
@@ -22,6 +23,11 @@ const Recipe = ({ selectedChefRecipe }) => {
                         <Link to='/' className="btn btn-primary">Go Back</Link>
                     </div>
                 </div>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10'>
+                {
+                    recipes?.map( recipe  => <RecipeCard recipe={recipe} ></RecipeCard>)
+                }
             </div>
         </div>
     );

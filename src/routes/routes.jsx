@@ -6,6 +6,7 @@ import Login from '../pages/LoginLayout/Login/Login';
 import Main from '../Layout/Main/Main';
 import Recipes from '../Layout/Recipes/Recipes';
 import RecipeDetails from '../pages/Chefs/RecipeDetails/RecipeDetails';
+import Register from '../pages/LoginLayout/Register/Register';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     },
