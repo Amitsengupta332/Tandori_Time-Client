@@ -34,16 +34,10 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signOut(auth)
     }
-    const setUpdateProfile = (user, name, url) => {
-        setLoading(true)
-        return updateProfile(user, {
-            displayName: name,
-            photoURL: url
-        })
-    }
+    
 
     const authInfo = {
-        user, createUser, logInUser, loggedOut, loading, setLoading, setUpdateProfile, googleSignIn, githubSignIn,
+        user, createUser, logInUser, loggedOut, loading, setLoading,   googleSignIn, githubSignIn,
     }
 
     useEffect(() => {

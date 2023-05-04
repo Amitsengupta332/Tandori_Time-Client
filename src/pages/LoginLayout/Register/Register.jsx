@@ -40,13 +40,7 @@ const Register = () => {
                 const signUpUser = result.user
                 console.log(signUpUser)
 
-                // setUpdateProfile(signUpUser, nameRef.current.value, urlRef.current.value)
-                //     .then(() => {
-                //         console.log(`profile updated`)
-                //     })
-                //     .catch(error => {
-                //         setError(error.message)
-                //     })
+ 
 
                 loggedOut()
                     .then(() => {
