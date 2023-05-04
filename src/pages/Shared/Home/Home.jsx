@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import background from '../../../assets/istockphoto-1455323613-1024x1024.jpg'
 import Chefs from '../../Chefs/Chefs/Chefs';
+import Achievment from '../Achievment/Achievment';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Home = () => {
+ 
     return (
         <div className='mt-3'>
+ 
             <div className="flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${background})` }} >
                 <div className="max-w-xl w-full px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white ">
@@ -16,7 +20,13 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className='mt-5'>
+                <Achievment></Achievment>
+            </div>
             <Chefs></Chefs>
+            <div>
+
+            </div>
         </div>
     );
 };

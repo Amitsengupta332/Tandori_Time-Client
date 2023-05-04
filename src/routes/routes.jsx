@@ -8,6 +8,7 @@ import Recipes from '../Layout/Recipes/Recipes';
 import RecipeDetails from '../pages/Chefs/RecipeDetails/RecipeDetails';
 import Register from '../pages/LoginLayout/Register/Register';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import PrivateRoute from './PrivateRoute';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>
             },
             {
                 path: '/login',
@@ -36,11 +37,11 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Recipes></Recipes>,
-        // errorElement: <ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/recipedetails/:id',
-                element: <RecipeDetails />,
+                element: <PrivateRoute><RecipeDetails /></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/cheflist/${params.id}`)
                 
             }

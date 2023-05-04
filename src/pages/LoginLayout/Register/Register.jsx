@@ -1,48 +1,79 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+
 // import { createLogger } from 'vite';
- 
+
 
 const Register = () => {
     // error handling 
     const [error, setError] = useState('')
-
     const [password, setPassword] = useState(null)
     const [passwordError, setPasswordError] = useState(null)
     const [email, setEmail] = useState(null)
     const [emailError, setEmailError] = useState(null)
 
+    const navigate = useNavigate()
+    const nameRef = useRef()
+    const urlRef = useRef()
+
+
     // use context 
-    const {  user, createUser, loggedOut, setUpdateProfile  } = useContext(AuthContext)
+    const { user, createUser, loggedOut, setUpdateProfile } = useContext(AuthContext)
+
+    // console.log(createUser);
+
+
     // handle form
     const handleRegister = event => {
         event.preventDefault();
         setError('')
-
         if (emailError) {
             event.target.email.focus();
         }
         else if (passwordError) {
             event.target.password.focus();
         }
-
-        const form = event.target;
-        const name = form.name.value;
-        const photoUrl = form.photoUrl.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(name, photoUrl, email, password);
+        // const form = event.target;
+        // const name = form.name.value;
+        // const photoUrl = form.photoUrl.value;
+        // const email = form.email.value;
+        // const password = form.password.value;
+        // console.log(name, photoUrl, email, password);
 
         createUser(email, password)
-        .then(result =>{
-            const createUser = result.user;
-            console.log(createUser);
-        })
-        .catch(error => {
-            console.log(error);
-        })
-        
+            .then(result => {
+                const signUpUser = result.user
+                console.log(signUpUser)
+
+                // setUpdateProfile(signUpUser, nameRef.current.value, urlRef.current.value)
+                //     .then(() => {
+                //         console.log(`profile updated`)
+                //     })
+                //     .catch(error => {
+                //         setError(error.message)
+                //     })
+
+                loggedOut()
+                    .then(() => {
+
+                        navigate(`/login`)
+
+                    })
+                    .catch(error => {
+                        setError(error.message)
+                    })
+                event.target.reset()
+                setError('')
+
+
+            })
+            .catch(error => {
+                console.log(error.message)
+                setError(error.message)
+            })
+
+
     }
 
     //  handle email
@@ -58,7 +89,7 @@ const Register = () => {
     }
 
     // handle password
-    const handelPassword = (event) =>{
+    const handelPassword = (event) => {
         const password = event.target.value;
         setPassword(password);
 
