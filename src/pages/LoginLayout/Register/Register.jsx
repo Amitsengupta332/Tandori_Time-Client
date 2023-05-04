@@ -34,13 +34,7 @@ const Register = () => {
         else if (passwordError) {
             event.target.password.focus();
         }
-        // const form = event.target;
-        // const name = form.name.value;
-        // const photoUrl = form.photoUrl.value;
-        // const email = form.email.value;
-        // const password = form.password.value;
-        // console.log(name, photoUrl, email, password);
-
+ 
         createUser(email, password)
             .then(result => {
                 const signUpUser = result.user

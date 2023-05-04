@@ -10,7 +10,7 @@ const RecipeDetails = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/cheflist')
+        fetch('https://chef-recipe-hunter-server-amitsengupta332.vercel.app/cheflist')
             .then(res => res.json())
             .then(data =>  setChefrecipes(data))
             .catch(error => console.log(error));

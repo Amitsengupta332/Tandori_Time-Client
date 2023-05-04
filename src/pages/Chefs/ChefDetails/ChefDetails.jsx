@@ -12,7 +12,7 @@ const ChefDetails = ({ chef }) => {
                     <h2 className="card-title text-2xl ">{chefName}</h2>
                     <p className='text-lg font-semibold'>Experience: {yearsOfExperience}yr </p>
                     <p className='text-md font-semibold'>Recipe Items : {recipes?.length} </p>
-                    <p className='text-sm font-semibold'>likes people :{likes} </p>
+                    <p className='text-sm font-semibold'>Likes people : {likes} </p>
                     <div className="card-actions justify-center">
                         <Link to={`/recipeDetails/${id}`} className="btn btn-primary">Recipe Details</Link>
                     </div>

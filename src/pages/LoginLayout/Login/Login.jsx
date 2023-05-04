@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
@@ -24,10 +25,7 @@ const Login = () => {
         event.preventDefault()
         setError('')
 
-        // const form = event.target;
-        // const email = form.email.value;
-        // const password = form.password.value;
-        // console.log(email, password);
+
         logInUser(email, password)
             .then(result => {
                 const loggedUser = result.user
@@ -47,15 +45,41 @@ const Login = () => {
 
             })
     }
-    
-    const handelEmailField = (e) => {
-        const email = e.target.value
+
+    const handleEmail = (event) => {
+        const email = event.target.value
         setEmail(email)
     }
 
-    const handelPasswordField = (e) => {
-        const password = e.target.value
+    const handlePassword = (event) => {
+        const password = event.target.value
         setPassword(password)
+    }
+
+
+    // google 
+    const handelGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                navigate(from, { replace: true })
+                console.log(result.user)
+
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const handelGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                navigate(from, { replace: true })
+                console.log(result.user)
+
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     return (
@@ -72,13 +96,13 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input onChange={handelEmailField} type="email" name='email' placeholder="email" className="input input-bordered" required />
+                                    <input onChange={handleEmail} type="email" name='email' placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input onChange={handelPasswordField} type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                    <input onChange={handlePassword} type="password" name='password' placeholder="password" className="input input-bordered" required />
                                     <label className="label">
                                         <Link className="label-text-alt link link-hover">Forgot password?</Link>
                                     </label>
@@ -97,11 +121,21 @@ const Login = () => {
                             <div>
                                 <div className="flex h-20 w-full ">
                                     <div className="   flex-grow card rounded-box place-items-center ">
-                                        <Link  > Google Sign In</Link>
+                                        <Link onClick={handelGoogleSignIn} >
+                                            <div className='flex justify-center items-center gap-2'>
+                                                <FaGoogle className='w-5 h-5'></FaGoogle>
+                                                Google Sign In
+                                            </div>
+                                        </Link>
                                     </div>
                                     <div className="divider divider-horizontal">OR</div>
                                     <div className=" flex-grow card rounded-box place-items-center ">
-                                        <Link> Github Sign In</Link>
+                                        <Link onClick={handelGithubSignIn}>
+                                            <div className='flex justify-center items-center gap-2'>
+                                                <FaGithub className='w-5 h-5'></FaGithub>
+                                                Github Sign In
+                                            </div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

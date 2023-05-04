@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='text-center mt-8'>
+        <div className='sm:text-center mt-8'>
             <footer className="footer p-10 bg-neutral text-neutral-content">
             <div>
                     <span className="footer-title font-bold text-3xl text-white">Tandoori Time</span>
@@ -14,9 +14,9 @@ const Footer = () => {
                 <div>
                     <span className="footer-title font-bold text-3xl text-white">Services</span>
                     <a className="link link-hover">24/7 opening</a>
+                    <a className="link link-hover">Online ordering</a>
                     <a className="link link-hover">Home Delivery</a>
-                    {/* <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a> */}
+                    {/* <a className="link link-hover">Advertisement</a> */}
                 </div>
                 
                 <div>
