@@ -7,10 +7,12 @@ import Main from '../Layout/Main/Main';
 import Recipes from '../Layout/Recipes/Recipes';
 import RecipeDetails from '../pages/Chefs/RecipeDetails/RecipeDetails';
 import Register from '../pages/LoginLayout/Register/Register';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
 const router = createBrowserRouter([
     {
         path: "/",
         element:  <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -34,6 +36,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Recipes></Recipes>,
+        // errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/recipedetails/:id',
