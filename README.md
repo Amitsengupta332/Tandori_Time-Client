@@ -3,7 +3,7 @@
 
 
  * Live Link ->
- Hosted in Firebase -> [Tandoori Time](https://chef-recipe-hunter-9c5cf.web.app/)
+ Hosted in Firebase -> [Tandoori Time]( https://chef-recipe-hunter-9c5cf.web.app)
 
 
  * GitHub Client 
@@ -17,8 +17,6 @@ Github Repo -> [Tandoori Time](https://github.com/Amitsengupta332/the-news-drago
 
 * React Icon 
 Documentation LInk -> [Link] (https://react-icons.github.io/react-icons/)
-
-
 
 * React Hot Toast
 Documentation Link -> [Link](https://react-hot-toast.com/docs)
