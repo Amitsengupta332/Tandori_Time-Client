@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 
 const Login = () => {
+    const [error, setError] = useState('')
+    const { signIn, setLoading } = useContext(AuthContext)
+
+    const handleLogin= event => {
+        e.preventDefault()
+        setError('')
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
+    }
     return (
         <div>
             <div>
@@ -12,7 +25,7 @@ const Login = () => {
                             <h1 className="text-5xl font-bold">Login now!</h1>
                         </div>
                         <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
-                            <form className="card-body">
+                            <form onSubmit={handleLogin} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -31,11 +44,12 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
+                                <p className='text-center mt-3 text-red-500  ' > {error} </p>
                             </form>
                             <p className='mb-4  text-center'>
-                                Don't Have An Account? 
-                                 <Link to="/register" className="link link-hover text-blue-600">
-                                     Please Register
+                                Don't Have An Account?
+                                <Link to="/register" className="link link-hover text-blue-600">
+                                    Please Register
                                 </Link>
                             </p>
                             <div>
