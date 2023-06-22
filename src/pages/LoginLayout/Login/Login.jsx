@@ -110,7 +110,7 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
-                                {/* <p className='text-center mt-3 text-red-500  ' > {error} </p> */}
+
                             </form>
                             <p className='mb-4  text-center'>
                                 Don't Have An Account?
